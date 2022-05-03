@@ -1,0 +1,56 @@
+﻿@model BlogMvcApp.Models.Blog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Baslik</h2>
+<hr />
+<p>
+    <span class="glyphicon glyphicon-time"></span>
+    @Model.EklenmeTarihi
+</p>
+<hr />
+<img class="img-responsive" src="https://cdn.pixabay.com/photo/2020/02/05/18/38/jungle-4822003_960_720.jpg" alt="" />
+<hr />
+<blockquote>
+    <p>@Model.Aciklama</p>
+</blockquote>
+<p>
+    @Model.Icerik
+</p>
+
+@{Html.RenderAction("YorumPartial", "Blog");} <!-- ikincisi hangi kontrollerin içinde olduğu-->
+@{Html.RenderAction("YorumYaz", "Blog");}
+@section SagKolon
+    {
+
+
+
+    <div class="well">
+        <h4>Blog Search</h4>
+        <div class="input-group">
+            <input type="text" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+
+        </div>
+
+    </div>
+    @{ Html.RenderAction("KategoriListesi", "Category");}<!-- ikincisi hangi kontrollerin içinde olduğu-->
+
+
+
+}
+
+
+
+<!--
+    <p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+    -->

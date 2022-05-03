@@ -1,0 +1,52 @@
+﻿@model BlogMvcApp.Models.Login
+
+<div class="well">
+   
+    <div class="row">
+        <div class="media">
+            <div class="media-body">
+                @if (Model==null)
+                {
+
+
+                    <div class="alert alert-danger" role="alert">
+                       Yorum yapmak için giriş yapınız.
+                    </div>
+
+
+
+                    <hr />
+                }
+                else
+                {
+
+
+            <div class="well">
+                @using (Html.BeginForm("YorumYaz", "Blog", FormMethod.Post))
+                {@Html.AntiForgeryToken()
+
+                <div class="input-group">
+                    @Html.TextArea("yorumum", null, new { @class = "form-control" })
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            Yorum Yap
+                        </button>
+                     
+                    </span>
+
+                </div>
+
+
+            }
+            </div>
+
+                        <hr />
+                    
+                }
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
